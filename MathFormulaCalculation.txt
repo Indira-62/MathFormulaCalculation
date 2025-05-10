@@ -1,215 +1,41 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8" />
-
 <title>Math Formula Calculator</title>
-
-<link rel="stylesheet" href="style.css" />
-
+<style>
+body{background:linear-gradient(to right,#dfe9f3,#ffffff);font-family:'Segoe UI',sans-serif;display:flex;justify-content:center;padding:40px;}
+.container{background:#ffffff;padding:30px;border-radius:20px;box-shadow:0 10px 20px rgba(0,0,0,0.1);max-width:400px;width:100%;}
+h2{text-align:center;color:#333;margin-bottom:20px;}
+select,input{width:100%;padding:12px;margin:10px 0;border:1px solid #ccc;border-radius:10px;box-sizing:border-box;font-size:16px;}
+button{width:100%;padding:12px;background-color:#4CAF50;border:none;color:white;font-size:16px;border-radius:10px;cursor:pointer;transition:background 0.3s ease;}
+button:hover{background-color:#45a049;}
+#result{margin-top:20px;font-weight:bold;text-align:center;font-size:18px;color:#222;}
+</style>
 </head>
-
 <body>
-
 <div class="container">
-
 <h2>Math Formula Calculator</h2>
-
 <select id="formula" onchange="showInputs()">
-
 <option value="">-- Select a Formula --</option>
-
 <option value="circle">Area of Circle</option>
-
 <option value="rectangle">Area of Rectangle</option>
-
 <option value="square">Perimeter of Square</option>
-
 <option value="cube">Volume of Cube</option>
-
 <option value="interest">Simple Interest</option>
-
 <option value="pythagoras">Pythagorean Theorem</option>
-
 </select>
-
-13<div id="inputFields"></div>
-
+<div id="inputFields"></div>
 <button onclick="calculate()">Calculate</button>
-
 <div id="result"></div>
-
 </div>
+<script>
+function showInputs(){const formula=document.getElementById("formula").value;const inputFields=document.getElementById("inputFields");inputFields.innerHTML="";switch(formula){case"circle":inputFields.innerHTML=`<input type="number" id="radius" placeholder="Enter radius">`;break;case"rectangle":inputFields.innerHTML=`<input type="number" id="length" placeholder="Enter length"><input type="number" id="breadth" placeholder="Enter breadth">`;break;case"square":inputFields.innerHTML=`<input type="number" id="side" placeholder="Enter side">`;break;case"cube":inputFields.innerHTML=`<input type="number" id="cubeSide" placeholder="Enter cube side">`;break;case"interest":inputFields.innerHTML=`<input type="number" id="principal" placeholder="Enter Principal"><input type="number" id="rate" placeholder="Enter Rate (%)"><input type="number" id="time" placeholder="Enter Time (years)">`;break;case"pythagoras":inputFields.innerHTML=`<input type="number" id="a" placeholder="Enter base"><input type="number" id="b" placeholder="Enter height">`;break;}}
+function calculate(){const formula=document.getElementById("formula").value;let result="";switch(formula){case"circle":let r=parseFloat(document.getElementById("radius").value);if(isNaN(r))return alert("Enter radius");result=`Area of Circle = ${(Math.PI*r*r).toFixed(2)}`;break;case"rectangle":let l=parseFloat(document.getElementById("length").value);let b=parseFloat(document.getElementById("breadth").value);if(isNaN(l)||isNaN(b))return alert("Enter both length and breadth");result=`Area of Rectangle = ${(l*b).toFixed(2)}`;break;case"square":let s=parseFloat(document.getElementById("side").value);if(isNaN(s))return alert("Enter side");result=`Perimeter of Square = ${(4*s).toFixed(2)}`;break;case"cube":let cs=parseFloat(document.getElementById("cubeSide").value);if(isNaN(cs))return alert("Enter cube side");result=`Volume of Cube = ${(cs**3).toFixed(2)}`;break;case"interest":let p=parseFloat(document.getElementById("principal").value);let rate=parseFloat(document.getElementById("rate").value);let t=parseFloat(document.getElementById("time").value);if(isNaN(p)||isNaN(rate)||isNaN(t))return alert("Enter all fields");result=`Simple Interest = ${((p*rate*t)/100).toFixed(2)}`;break;case"pythagoras":let a=parseFloat(document.getElementById("a").value);let h=parseFloat(document.getElementById("b").value);if(isNaN(a)||isNaN(h))return alert("Enter base and height");result=`Hypotenuse = ${(Math.sqrt(a*a+h*h)).toFixed(2)}`;break;default:result="Please select a formula.";}
+document.getElementById("result").innerText=result;}
+</script>
+</body>
+</html>
 
-<script src="script.js"></script>
 
-</body> </html>
 
-4.2 CSS CODE
-
-body { background: linear-gradient(to right, #dfe9f3, #ffffff); font-family: 'Segoe
-
-UI', sans-serif; display: flex; justify-content: center; padding: 40px;
-
-}
-
-.container{background: #ffffff;padding: 30px; border-radius: 20px; box-shadow: 0
-
-10px 20px rgba(0, 0, 0, 0.1); max-width: 400px;width: 100%;
-
-}
-
-h2 {text-align: center;color: #333; margin-bottom: 20px;
-
-}
-
-select, input {width: 100%;padding: 12px;margin: 10px 0; border: 1px solid #ccc;
-
-border-radius: 10px; box-sizing: border-box; font-size: 16px;
-
-}
-
-button {
-
-width: 100%;padding: 12pX background-color: #4CAF50; border: none; color:
-
-white;font-size: 16px;border-radius: 10px; cursor:pointer; transition: background
-
-0.3s ease;
-
-}
-
-button:hover {background-color: #45a049;
-
-}
-
-#result {margin-top: 20px;font-weight: bold;text-align: center;font-size:18px;
-
-color: #222;
-
-}
-
-144.3 JAVA SCRIPT
-
-functionshowInputs(){constformula=
-
-document.getElementById("formula").value;constinputFields=
-
-document.getElementById("inputFields"); inputFields.innerHTML = "";
-
-switch (formula) { case "circle":
-
-inputFields.innerHTML = `<input type="number" id="radius" placeholder="Enter
-
-radius">`; break; case "rectangle":
-
-inputFields.innerHTML = `
-
-<input type="number" id="length" placeholder="Enter length">
-
-<input type="number" id="breadth" placeholder="Enter breadth"> `;
-
-break; case "square":
-
-inputFields.innerHTML = `<input type="number" id="side" placeholder="Enter
-
-side">`; break; case "cube": inputFields.innerHTML = `<input type="number"
-
-id="cubeSide" placeholder="Enter cube
-
-side">`;
-
-break; case "interest":
-
-inputFields.innerHTML = `
-
-<input type="number" id="principal" placeholder="Enter Principal">
-
-<input type="number" id="rate" placeholder="Enter Rate (%)">
-
-<input type="number" id="time" placeholder="Enter Time (years)"> ;
-
-break; case "pythagoras":
-
-inputFields.innerHTML = `
-
-<input type="number" id="a" placeholder="Enter base">
-
-<input type="number" id="b" placeholder="Enter height"> `;
-
-break;
-
-}
-
-}
-
-function calculate() {
-
-15const formula = document.getElementById("formula").value; let result = "";
-
-switch (formula) { case "circle":
-
-let r = parseFloat(document.getElementById("radius").value); if (isNaN(r)) return
-
-alert("Enter radius");
-
-result = `Area of Circle = ${(Math.PI * r * r).toFixed(2)}`; break;
-
-case "rectangle":
-
-letl=parseFloat(document.getElementById("length").value);letb=
-
-parseFloat(document.getElementById("breadth").value); if (isNaN(l) || isNaN(b))
-
-return alert("Enter both length and breadth"); result = `Area of Rectangle = ${(l *
-
-b).toFixed(2)}`; break;
-
-case "square":
-
-let s = parseFloat(document.getElementById("side").value); if (isNaN(s)) return
-
-alert("Enter side"); result = `Perimeter of Square = ${(4 * s).toFixed(2)}`; break;
-
-case "cube":
-
-let cs = parseFloat(document.getElementById("cubeSide").value);
-
-if (isNaN(cs)) return alert("Enter cube side"); result = `Volume of Cube = ${(cs
-
-** 3).toFixed(2)}`; break;
-
-case "interest":
-
-let p = parseFloat(document.getElementById("principal").value); let rate=
-
-parseFloat(document.getElementById("rate").value);lett=
-
-parseFloat(document.getElementById("time").value); if (isNaN(p) || isNaN(rate)
-
-|| isNaN(t)) return alert("Enter all fields"); result = `Simple Interest = ${((p * rate
-
-* t) / 100).toFixed(2)}`; break;
-
-case "pythagoras":
-
-leta=parseFloat(document.getElementById("a").value);leth=
-
-parseFloat(document.getElementById("b").value); if (isNaN(a) || isNaN(h))
-
-return alert("Enter base and height"); result = `Hypotenuse = ${(Math.sqrt(a
-
-* a + h * h)).toFixed(2)}`;
-
-break;
-
-16default:
-
-result = "Please select a formula.";
-
-}
-
-document.getElementById("result").innerText = result; }
